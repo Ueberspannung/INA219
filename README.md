@@ -90,11 +90,10 @@ void setOperationMode(	op_mode_et mode);
 ```
 
 There are only a few functions needed to control the chip. The only value guaranteed to be a mV value is the bus voltage.  
-The shunt voltage is read as internal value which is a multiple of 10 µV.  
+The shunt voltage is read as internal value which is either 80.96 mV or 20.48 mV at full scale resulting in  ~2.47 uV or 625 uV resolution.
 The accuracy and base of the current and power reading depends on the shunt resistor. 
-The shunt resistor and the desired full scale reading leads to the calibration value 
-which needs to be programmed to the INA219. See datasheet for details.
-The power reading is the the product of the bus voltage register and the current register divided by 5000.
+The shunt resistor and the desired full scale reading leads to the calibration value which needs to be programmed to the INA232. See datasheet for details.
+The power reading is the the product of the bus voltage register and the current register. See datasheet for details
 
 #### INA219
 constructor, needs to be called with the chip I2C adress
