@@ -177,9 +177,9 @@ gain_et calcSuntGain(uint16_t Rshunt_mR, uint16_t MaxCurrent_mA);
 
 void reset(void);
 void setAdcAveraging(	uint8_t scale);	// 0-7 = 0-3 2^(2*scale) samples
-										//		 4-7 2^(3+scale) samples
+                                        //       4-7 2^(3+scale) samples
 void setAdcConversionTime(adc_selector_et adc,
-						uint8_t time);	// 0-7 ~2^(time+6)us
+                          uint8_t time);	// 0-7 ~2^(time+6)us
 void setShuntGain(		gain_et gain);
 void setOperationMode(	op_mode_et mode);				
 
@@ -276,21 +276,6 @@ Parameters
     - SHUNT_OVER_LINIT_ALERT_ENABLE  
 	  enables assertion of alert pin by shunt over limit
   - enable / disable
-
-   {  	LATCH_ENABLE					= 0,	// R/W 0=Transparent / 1= Latched
-								ALERT_POLARITY					= 1,	// R/W 0=active low	/ 1= acitve high
-								OVERFLOW_FLAG					= 2,	// R match overflow current / power claculation
-								CONVERSION_READY_FLAG			= 3,	// R conversipn ready, new data available
-								ALERT_FUNCTION_FLAG				= 4,	// R 0=Alert has been asserted by conversion ready
-																		//   1=Alert has been asserted by alert condition
-								MEMORY_ERROR					= 5, 	// R internal CRC or ECC error has occured
-								CONVERSION_READY_ALERT_ENABLE	=10,	// R/W enables assertion of alert pin by conversion ready
-								POWER_OVER_LIMIT_ALERT_ENABLE	=11,	// R/W enables assertion of alert pin by power over limit
-								BUS_UNDER_LINIT_ALERT_ENABLE	=12,	// R/W enables assertion of alert pin by bus under limit
-								BUS_OVER_LINIT_ALERT_ENABLE		=13,	// R/W enables assertion of alert pin by bus over limit
-								SHUNT_UNDER_LINIT_ALERT_ENABLE	=14,	// R/W enables assertion of alert pin by shunt under limit
-								SHUNT_OVER_LINIT_ALERT_ENABLE	=15		// R/W enables assertion of alert pin by shunt over limit
-							} event_msk_et;
 							 
 #### INA232 readMaskFlag                        
 reads the content of the event register and returns the the desired flag
